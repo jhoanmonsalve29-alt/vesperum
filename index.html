@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>v — la página arrechísima</title>
+  <style>
+    :root {
+      --bg: #0b0e12;
+      --text: #e8edf1;
+      --muted: #a8b3bd;
+      --primary: #7c3aed; /* morado */
+      --accent: #22d3ee;  /* cyan */
+      --card: #11151c;
+      --shadow: rgba(0,0,0,0.3);
+    }
+    [data-theme="light"] {
+      --bg: #f7f9fc;
+      --text: #15202b;
+      --muted: #506273;
+      --primary: #6d28d9;
+      --accent: #0ea5e9;
+      --card: #ffffff;
+      --shadow: rgba(0,0,0,0.12);
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      overflow: hidden; /* canvas de fondo infinito */
+    }
+
+    /* Fondo interactivo */
+    #backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(124,58,237,.12), transparent 60%),
+                  radial-gradient(1200px 600px at 80% 90%, rgba(34,
