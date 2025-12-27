@@ -13,19 +13,22 @@ wap" rel="stylesheet">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* PALETA DE COLORES DEL LOGO */
+/* PALETA DE COLORES - TONOS VERDES ELEGANTES */
 :root {
---primary-dark: #0a0a0a;
---primary-darker: #050505;
+--primary-dark: #0a1f0a;
+--primary-darker: #051405;
+--accent-green: #2ecc71;
+--accent-green-light: #4ecdc4;
+--accent-green-dark: #27ae60;
 --accent-gold: #d4af37;
---accent-gold-light: #e6c158;
---accent-gold-dark: #b8941f;
 --light-color: #f5f5f5;
 --white: #ffffff;
 --text-color: #333333;
 --text-light: #666666;
+--section-bg: #f9fbf9;
 --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
---shadow-gold: 0 5px 20px rgba(212, 175, 55, 0.2);
+--shadow-green: 0 5px 20px rgba(46, 204, 113, 0.2);
+--shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 /* RESET Y ESTILOS BASE */
 * {
@@ -44,8 +47,8 @@ color: var(--text-color);
 background-color: var(--primary-dark);
 overflow-x: hidden;
 background-image:
-radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 20%),
-radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 20%);
+radial-gradient(circle at 10% 20%, rgba(46, 204, 113, 0.03) 0%, transparent 20%),
+radial-gradient(circle at 90% 80%, rgba(46, 204, 113, 0.03) 0%, transparent 20%);
 }
 /* FONDO ESPACIAL ANIMADO */
 .space-bg {
@@ -58,15 +61,9 @@ z-index: -2;
 overflow: hidden;
 background:
 radial-gradient(ellipse at center,
-rgba(10, 10, 10, 0.9) 0%,
-rgba(5, 5, 5, 0.95) 70%,
-#000000 100%),
-url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9
-zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgdmlld0JveD0iMCAwIDUwIDUwIj48cGF0aCBkP
-SJNMjUgMS41QzM4LjM3OCAxLjUgNDguNSAxMS42MjIgNDguNSAyNUMyOC41IDM4LjM3OC
-AxOC4zNzggNDguNSA1IDQ4LjVDMTEuNjIyIDQ4LjUgMS41IDM4LjM3OCAxLjUgMjVDMS41ID
-ExLjYyMiAxMS42MjIgMS41IDI1IDEuNXoiIGZpbGw9IiNkNGFlMzciIGZpbGwtb3BhY2l0eT0iMC4
-wNSIvPjwvc3ZnPg==');
+rgba(10, 31, 10, 0.9) 0%,
+rgba(5, 20, 5, 0.95) 70%,
+#000000 100%);
 }
 .star {
 position: absolute;
@@ -78,17 +75,18 @@ animation: twinkle 5s infinite;
 0%, 100% { opacity: 0.2; }
 50% { opacity: 1; }
 }
+/* CONTENEDOR PRINCIPAL */
 .container {
 width: 100%;
 max-width: 1200px;
 margin: 0 auto;
 padding: 0 1.5rem;
 }
-/* BOTONES CON EFECTO 3D */
+/* BOTONES CON EFECTO */
 .btn {
 display: inline-block;
-background: linear-gradient(145deg, var(--accent-gold), var(--accent-gold-dark));
-color: var(--primary-dark);
+background: linear-gradient(145deg, var(--accent-green), var(--accent-green-dark));
+color: var(--white);
 padding: 0.875rem 2rem;
 border-radius: 8px;
 text-decoration: none;
@@ -101,78 +99,72 @@ cursor: pointer;
 font-family: 'Montserrat', sans-serif;
 position: relative;
 overflow: hidden;
-transform-style: preserve-3d;
-transform: perspective(1000px);
-box-shadow:
-0 10px 20px rgba(0, 0, 0, 0.3),
-inset 0 1px 0 rgba(255, 255, 255, 0.2);
+box-shadow: var(--shadow-green);
 }
 .btn:hover {
-transform: perspective(1000px) translateY(-5px) rotateX(5deg);
-box-shadow:
-0 15px 30px rgba(212, 175, 55, 0.4),
-inset 0 1px 0 rgba(255, 255, 255, 0.2);
-background: linear-gradient(145deg, var(--accent-gold-light), var(--accent-gold));
+transform: translateY(-5px);
+box-shadow: 0 15px 30px rgba(46, 204, 113, 0.4);
+background: linear-gradient(145deg, var(--accent-green-light), var(--accent-green));
 }
 .btn:active {
-transform: perspective(1000px) translateY(2px);
-box-shadow:
-0 5px 10px rgba(0, 0, 0, 0.3),
-inset 0 1px 0 rgba(255, 255, 255, 0.1);
+transform: translateY(2px);
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-/* HEADER CON EFECTO 3D */
+/* HEADER CON LOGO */
 header {
-background-color: rgba(10, 10, 10, 0.9);
+background-color: rgba(10, 31, 10, 0.95);
 position: fixed;
 width: 100%;
 top: 0;
 z-index: 1000;
 backdrop-filter: blur(10px);
-border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-transform-style: preserve-3d;
-transform: translateZ(0);
+border-bottom: 1px solid rgba(46, 204, 113, 0.1);
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+padding: 0.5rem 0;
 }
 .header-container {
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 1.2rem 0;
+padding: 0.5rem 0;
+}
+.logo-container {
+display: flex;
+align-items: center;
+gap: 1rem;
 }
 .logo {
-font-family: 'Playfair Display', serif;
-font-size: 1.8rem;
+font-family: 'Orbitron', sans-serif;
+font-size: 2.2rem;
 font-weight: 700;
-color: var(--accent-gold);
+color: var(--accent-green);
 text-decoration: none;
-display: flex;
-flex-direction: column;
-line-height: 1.2;
-text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-transform-style: preserve-3d;
+text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+letter-spacing: 2px;
 transition: var(--transition);
 }
 .logo:hover {
-transform: perspective(1000px) translateZ(10px);
+color: var(--accent-green-light);
+transform: scale(1.05);
 }
 .logo-slogan {
-font-size: 0.65rem;
-letter-spacing: 2px;
+font-family: 'Montserrat', sans-serif;
+font-size: 0.9rem;
 color: var(--white);
+font-weight: 300;
+letter-spacing: 3px;
 text-transform: uppercase;
-font-family: 'Orbitron', sans-serif;
-font-weight: 400;
-margin-top: 0.25rem;
+border-left: 2px solid rgba(46, 204, 113, 0.5);
+padding-left: 1rem;
 }
-/* NAVEGACIÓN 3D */
+/* NAVEGACIÓN */
 .nav-desktop {
 display: flex;
 list-style: none;
-transform-style: preserve-3d;
 }
 .nav-desktop li {
 margin-left: 2rem;
 position: relative;
-transform-style: preserve-3d;
 }
 .nav-desktop a {
 color: var(--white);
@@ -184,23 +176,21 @@ position: relative;
 padding: 0.5rem 0;
 display: block;
 }
-.nav-desktop a::before {
+.nav-desktop a::after {
 content: '';
 position: absolute;
-width: 100%;
+width: 0;
 height: 2px;
-background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+background: var(--accent-green);
 bottom: 0;
 left: 0;
-transform: scaleX(0);
-transform-origin: center;
-transition: var(--transition);
+transition: width 0.3s ease;
 }
 .nav-desktop a:hover {
-color: var(--accent-gold);
+color: var(--accent-green);
 }
-.nav-desktop a:hover::before {
-transform: scaleX(1);
+.nav-desktop a:hover::after {
+width: 100%;
 }
 /* Botón de menú móvil */
 .mobile-menu-btn {
@@ -210,14 +200,8 @@ border: none;
 color: var(--white);
 font-size: 1.5rem;
 cursor: pointer;
-transform-style: preserve-3d;
-transition: var(--transition);
 }
-.mobile-menu-btn:hover {
-color: var(--accent-gold);
-transform: rotate(90deg);
-}
-/* HERO SECTION CON FONDO ESPACIAL 3D */
+/* HERO SECTION */
 .hero {
 padding: 12rem 1.5rem 5rem;
 min-height: 100vh;
@@ -227,46 +211,29 @@ justify-content: center;
 text-align: center;
 position: relative;
 overflow: hidden;
-background:
-radial-gradient(ellipse at 50% 30%,
-rgba(212, 175, 55, 0.05) 0%,
-transparent 60%),
-radial-gradient(ellipse at 80% 80%,
-rgba(212, 175, 55, 0.03) 0%,
-transparent 40%);
 }
 .hero-content {
 max-width: 900px;
 position: relative;
 z-index: 1;
-transform-style: preserve-3d;
 }
 .hero h1 {
 font-family: 'Orbitron', sans-serif;
 font-size: 4rem;
 font-weight: 700;
-color: var(--accent-gold);
+color: var(--accent-green);
 margin-bottom: 1.5rem;
 line-height: 1.1;
-text-shadow:
-0 0 20px rgba(212, 175, 55, 0.5),
-0 5px 15px rgba(0, 0, 0, 0.5);
-transform-style: preserve-3d;
-animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-0%, 100% { transform: translateY(0) rotateX(5deg); }
-50% { transform: translateY(-15px) rotateX(5deg); }
+text-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
 }
 .hero h2 {
 font-family: 'Orbitron', sans-serif;
-font-size: 1.2rem;
+font-size: 1.5rem;
 font-weight: 400;
-letter-spacing: 8px;
-margin-bottom: 2rem;
+letter-spacing: 10px;
+margin-bottom: 3rem;
 text-transform: uppercase;
 color: var(--white);
-text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 .hero p {
 font-size: 1.2rem;
@@ -277,55 +244,39 @@ max-width: 700px;
 margin-left: auto;
 margin-right: auto;
 }
-/* PLANETA 3D FLOTANTE */
-.planet {
-position: absolute;
-width: 300px;
-height: 300px;
-border-radius: 50%;
-background: radial-gradient(circle at 30% 30%,
-var(--accent-gold) 0%,
-var(--accent-gold-dark) 30%,
-transparent 70%);
-filter: blur(1px);
-opacity: 0.2;
-top: 15%;
-right: 10%;
-z-index: 0;
-animation: rotatePlanet 60s linear infinite;
-box-shadow:
-inset -20px -20px 40px rgba(0, 0, 0, 0.5),
-inset 10px 10px 20px rgba(212, 175, 55, 0.2),
-0 0 50px rgba(212, 175, 55, 0.2);
-}
-@keyframes rotatePlanet {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
 /* SECCIONES GENERALES */
 .section {
 padding: 6rem 1.5rem;
 position: relative;
-background-color: rgba(10, 10, 10, 0.7);
-backdrop-filter: blur(5px);
 }
 .section-light {
-background-color: rgba(245, 245, 245, 0.95);
+background-color: var(--section-bg);
 }
 .section-title {
 text-align: center;
 margin-bottom: 4rem;
-transform-style: preserve-3d;
 }
 .section-title h2 {
 font-family: 'Orbitron', sans-serif;
 font-size: 2.8rem;
-color: var(--accent-gold);
-margin-bottom: 1rem;
-text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+color: var(--accent-green);
+margin-bottom: 1.5rem;
+position: relative;
+display: inline-block;
+}
+.section-title h2::after {
+content: '';
+position: absolute;
+width: 80px;
+height: 4px;
+background: var(--accent-green);
+bottom: -10px;
+left: 50%;
+transform: translateX(-50%);
+border-radius: 2px;
 }
 .section-light .section-title h2 {
-color: var(--primary-dark);
+color: var(--primary-darker);
 }
 .section-title p {
 color: var(--text-light);
@@ -333,10 +284,7 @@ max-width: 600px;
 margin: 0 auto;
 font-size: 1.1rem;
 }
-.section-light .section-title p {
-color: var(--text-color);
-}
-/* SECCIÓN NOSOTROS CON EFECTO 3D */
+/* SECCIÓN NOSOTROS */
 .about-content {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -346,15 +294,16 @@ align-items: center;
 .about-text h3 {
 font-size: 1.8rem;
 margin-bottom: 1.5rem;
-color: var(--accent-gold);
+color: var(--accent-green);
 }
 .section-light .about-text h3 {
-color: var(--primary-dark);
+color: var(--primary-darker);
 }
 .about-text p {
 margin-bottom: 1.5rem;
 font-size: 1.05rem;
 color: rgba(255, 255, 255, 0.9);
+line-height: 1.8;
 }
 .section-light .about-text p {
 color: var(--text-color);
@@ -363,20 +312,8 @@ color: var(--text-color);
 border-radius: 15px;
 overflow: hidden;
 position: relative;
-transform-style: preserve-3d;
-transform: perspective(1000px) rotateY(-5deg);
 transition: var(--transition);
-box-shadow:
-20px 20px 40px rgba(0, 0, 0, 0.5),
--5px -5px 20px rgba(212, 175, 55, 0.1),
-inset 0 0 30px rgba(0, 0, 0, 0.5);
-}
-.about-image:hover {
-transform: perspective(1000px) rotateY(0deg) translateZ(20px);
-box-shadow:
-30px 30px 60px rgba(0, 0, 0, 0.6),
--10px -10px 30px rgba(212, 175, 55, 0.15),
-inset 0 0 40px rgba(0, 0, 0, 0.5);
+box-shadow: var(--shadow-green);
 }
 .about-image img {
 width: 100%;
@@ -387,9 +324,9 @@ transition: var(--transition);
 .about-image:hover img {
 transform: scale(1.05);
 }
-/* SECCIÓN CATÁLOGO CON TARJETAS 3D */
+/* SECCIÓN CATÁLOGO */
 .catalog {
-background-color: rgba(5, 5, 5, 0.8);
+background-color: rgba(5, 20, 5, 0.8);
 }
 .products-grid {
 display: grid;
@@ -397,34 +334,18 @@ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 gap: 2.5rem;
 }
 .product-card {
-background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(10, 10, 10, 0.9));
+background: rgba(30, 30, 30, 0.8);
 border-radius: 15px;
 overflow: hidden;
 position: relative;
-transform-style: preserve-3d;
-transform: perspective(1000px) rotateX(5deg);
 transition: var(--transition);
-box-shadow:
-0 15px 35px rgba(0, 0, 0, 0.5),
-inset 0 1px 0 rgba(212, 175, 55, 0.1);
-border: 1px solid rgba(212, 175, 55, 0.1);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+border: 1px solid rgba(46, 204, 113, 0.1);
 }
 .product-card:hover {
-transform: perspective(1000px) rotateX(0deg) translateY(-15px) translateZ(20px);
-box-shadow:
-0 25px 50px rgba(212, 175, 55, 0.2),
-inset 0 1px 0 rgba(212, 175, 55, 0.2);
-border-color: rgba(212, 175, 55, 0.3);
-}
-.product-card::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 4px;
-background: linear-gradient(90deg, var(--accent-gold), var(--accent-gold-dark));
-z-index: 1;
+transform: translateY(-15px);
+box-shadow: 0 25px 50px rgba(46, 204, 113, 0.2);
+border-color: rgba(46, 204, 113, 0.3);
 }
 .product-img {
 height: 220px;
@@ -442,13 +363,11 @@ transform: scale(1.1);
 }
 .product-info {
 padding: 2rem;
-position: relative;
-z-index: 1;
 }
 .product-category {
 display: inline-block;
-background: linear-gradient(145deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
-color: var(--accent-gold);
+background: rgba(46, 204, 113, 0.1);
+color: var(--accent-green);
 padding: 0.4rem 1rem;
 border-radius: 20px;
 font-size: 0.8rem;
@@ -456,7 +375,6 @@ font-weight: 600;
 margin-bottom: 1rem;
 text-transform: uppercase;
 letter-spacing: 1px;
-border: 1px solid rgba(212, 175, 55, 0.2);
 }
 .product-name {
 font-family: 'Orbitron', sans-serif;
@@ -474,471 +392,277 @@ line-height: 1.6;
 font-family: 'Orbitron', sans-serif;
 font-size: 1.8rem;
 font-weight: 700;
-color: var(--accent-gold);
+color: var(--accent-green);
 margin-bottom: 1.5rem;
-text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
-/* SECCIÓN SERVICIOS CON ICONOS 3D */
+/* SECCIÓN SERVICIOS */
 .services-grid {
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 gap: 2.5rem;
 }
 .service-card {
-background: linear-gradient(145deg, rgba(245, 245, 245, 0.9), rgba(255, 255, 255, 0.9));
+background: var(--white);
 border-radius: 15px;
 padding: 3rem 2rem;
 text-align: center;
 position: relative;
-transform-style: preserve-3d;
-transform: perspective(1000px) rotateY(-5deg);
 transition: var(--transition);
-box-shadow:
-15px 15px 30px rgba(0, 0, 0, 0.1),
--5px -5px 15px rgba(255, 255, 255, 0.8);
-border: 1px solid rgba(212, 175, 55, 0.1);
-}
-.service-card:nth-child(even) {
-transform: perspective(1000px) rotateY(5deg);
+box-shadow: var(--shadow-light);
+border: 1px solid rgba(46, 204, 113, 0.1);
 }
 .service-card:hover {
-transform: perspective(1000px) rotateY(0deg) translateY(-15px) translateZ(20px);
-box-shadow:
-20px 20px 40px rgba(212, 175, 55, 0.15),
--10px -10px 20px rgba(255, 255, 255, 0.9);
-border-color: rgba(212, 175, 55, 0.3);
+transform: translateY(-15px);
+box-shadow: 0 20px 40px rgba(46, 204, 113, 0.15);
+border-color: rgba(46, 204, 113, 0.3);
 }
 .service-icon {
 font-size: 3.5rem;
-color: var(--accent-gold);
+color: var(--accent-green);
 margin-bottom: 1.5rem;
 display: inline-block;
-transform-style: preserve-3d;
-transition: var(--transition);
-text-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
-}
-.service-card:hover .service-icon {
-transform: perspective(1000px) rotateY(360deg) translateZ(20px);
 }
 .service-card h3 {
 font-size: 1.6rem;
 margin-bottom: 1rem;
-color: var(--primary-dark);
+color: var(--primary-darker);
 }
 .service-card p {
 color: var(--text-color);
 line-height: 1.6;
 }
-/* FORMULARIO DE CONTACTO CON EFECTO 3D */
+/* FORMULARIO DE CONTACTO */
 .contact-form {
 max-width: 700px;
 margin: 0 auto;
-background: linear-gradient(145deg, rgba(30, 30, 30, 0.9), rgba(10, 10, 10, 0.9));
+background: rgba(30, 30, 30, 0.8);
 padding: 3.5rem;
 border-radius: 20px;
-position: relative;
-transform-style: preserve-3d;
-transform: perspective(1000px) rotateX(5deg);
-transition: var(--transition);
-box-shadow:
-0 20px 40px rgba(0, 0, 0, 0.5),
-inset 0 1px 0 rgba(212, 175, 55, 0.1);
-border: 1px solid rgba(212, 175, 55, 0.1);
-}
-.contact-form:hover {
-transform: perspective(1000px) rotateX(0deg) translateZ(20px);
-box-shadow:
-0 30px 60px rgba(212, 175, 55, 0.2),
-inset 0 1px 0 rgba(212, 175, 55, 0.2);
+box-shadow: var(--shadow-green);
+border: 1px solid rgba(46, 204, 113, 0.1);
 }
 .form-group {
 margin-bottom: 1.8rem;
-transform-style: preserve-3d;
 }
 .form-group label {
 display: block;
 margin-bottom: 0.5rem;
+color: var(--accent-green);
 font-weight: 500;
-color: var(--accent-gold);
-transform: translateZ(10px);
 }
-.form-group input,
-.form-group textarea,
-.form-group select {
+.form-control {
 width: 100%;
 padding: 1rem;
-background: rgba(20, 20, 20, 0.8);
-border: 1px solid rgba(212, 175, 55, 0.2);
+border: 1px solid rgba(46, 204, 113, 0.3);
 border-radius: 8px;
+background: rgba(255, 255, 255, 0.1);
+color: var(--white);
 font-family: 'Montserrat', sans-serif;
 font-size: 1rem;
 transition: var(--transition);
-color: var(--white);
-transform-style: preserve-3d;
 }
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
+.form-control:focus {
 outline: none;
-border-color: var(--accent-gold);
-box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1), 0 0 20px rgba(212, 175, 55, 0.2);
-transform: translateZ(15px);
+border-color: var(--accent-green);
+box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
 }
-.form-group textarea {
+textarea.form-control {
 min-height: 150px;
 resize: vertical;
 }
-/* FOOTER 3D */
+/* FOOTER */
 footer {
-background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), rgba(5, 5, 5, 0.95));
+background-color: var(--primary-darker);
 color: var(--white);
-padding: 5rem 1.5rem 2rem;
-position: relative;
-transform-style: preserve-3d;
-border-top: 1px solid rgba(212, 175, 55, 0.1);
-}
-footer::before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 3px;
-background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+padding: 4rem 1.5rem 2rem;
+text-align: center;
 }
 .footer-content {
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 gap: 3rem;
 margin-bottom: 3rem;
-position: relative;
-z-index: 1;
 }
-.footer-column h3 {
+.footer-logo {
 font-family: 'Orbitron', sans-serif;
-font-size: 1.4rem;
+font-size: 2.2rem;
+color: var(--accent-green);
+margin-bottom: 1rem;
+text-align: left;
+}
+.footer-slogan {
+font-family: 'Montserrat', sans-serif;
+font-size: 0.9rem;
+color: rgba(255, 255, 255, 0.7);
+font-weight: 300;
+letter-spacing: 2px;
+text-transform: uppercase;
+text-align: left;
+}
+.footer-links h3, .footer-contact h3 {
+font-size: 1.3rem;
 margin-bottom: 1.5rem;
-color: var(--accent-gold);
-position: relative;
-padding-bottom: 0.75rem;
-transform: translateZ(10px);
+color: var(--accent-green);
+text-align: left;
 }
-.footer-column h3::after {
-content: '';
-position: absolute;
-width: 50px;
-height: 2px;
-background: linear-gradient(90deg, var(--accent-gold), transparent);
-bottom: 0;
-left: 0;
-}
-.footer-links {
+.footer-links ul {
 list-style: none;
+text-align: left;
 }
 .footer-links li {
-margin-bottom: 0.75rem;
-transform-style: preserve-3d;
-transition: var(--transition);
-}
-.footer-links li:hover {
-transform: translateX(10px) translateZ(5px);
+margin-bottom: 0.8rem;
 }
 .footer-links a {
-color: rgba(255, 255, 255, 0.8);
+color: rgba(255, 255, 255, 0.7);
 text-decoration: none;
 transition: var(--transition);
-display: inline-block;
 }
 .footer-links a:hover {
-color: var(--accent-gold);
+color: var(--accent-green);
+padding-left: 5px;
 }
-.contact-info p {
+.footer-contact p {
+color: rgba(255, 255, 255, 0.7);
 margin-bottom: 1rem;
+text-align: left;
 display: flex;
-align-items: flex-start;
-transform: translateZ(10px);
-}
-.contact-info i {
-margin-right: 10px;
-color: var(--accent-gold);
-width: 20px;
-margin-top: 3px;
-}
-.social-links {
-display: flex;
-gap: 1rem;
-margin-top: 1.5rem;
-}
-.social-links a {
-display: inline-flex;
 align-items: center;
-justify-content: center;
-width: 45px;
-height: 45px;
-background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
-border-radius: 50%;
-color: var(--white);
-text-decoration: none;
-transition: var(--transition);
-transform-style: preserve-3d;
-border: 1px solid rgba(212, 175, 55, 0.2);
 }
-.social-links a:hover {
-background: linear-gradient(145deg, var(--accent-gold), var(--accent-gold-dark));
-color: var(--primary-dark);
-transform: translateY(-5px) translateZ(10px);
-box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+.footer-contact i {
+color: var(--accent-green);
+margin-right: 10px;
+width: 20px;
 }
 .copyright {
-text-align: center;
 padding-top: 2rem;
-border-top: 1px solid rgba(255, 255, 255, 0.1);
+border-top: 1px solid rgba(46, 204, 113, 0.1);
+color: rgba(255, 255, 255, 0.5);
 font-size: 0.9rem;
-color: rgba(255, 255, 255, 0.6);
-position: relative;
-z-index: 1;
 }
-/* MEDIA QUERIES PARA RESPONSIVIDAD COMPLETA */
-@media (max-width: 1200px) {
-.hero h1 {
-font-size: 3.5rem;
-}
-.section-title h2 {
-font-size: 2.5rem;
-}
-.planet {
-width: 250px;
-height: 250px;
-right: 5%;
-}
-}
+/* RESPONSIVE DESIGN */
 @media (max-width: 992px) {
+.hero h1 {
+font-size: 3rem;
+}
 .about-content {
 grid-template-columns: 1fr;
 gap: 3rem;
 }
 .about-image {
 order: -1;
-transform: perspective(1000px) rotateX(5deg);
-}
-.about-image:hover {
-transform: perspective(1000px) rotateX(0deg) translateZ(20px);
-}
-.hero h1 {
-font-size: 3rem;
-}
-.planet {
-width: 200px;
-height: 200px;
-top: 10%;
-right: 5%;
 }
 }
 @media (max-width: 768px) {
-/* Menú móvil */
-.mobile-menu-btn {
-display: block;
+.header-container {
+flex-direction: column;
+padding: 1rem 0;
+}
+.logo-container {
+margin-bottom: 1rem;
+flex-direction: column;
+text-align: center;
+gap: 0.5rem;
+}
+.logo-slogan {
+border-left: none;
+border-top: 2px solid rgba(46, 204, 113, 0.5);
+padding-left: 0;
+padding-top: 0.5rem;
 }
 .nav-desktop {
 display: none;
 }
-.nav-mobile {
-display: none;
-position: fixed;
-top: 80px;
-left: 0;
-width: 100%;
-background: linear-gradient(145deg, rgba(10, 10, 10, 0.95), rgba(5, 5, 5, 0.98));
-padding: 2rem;
-backdrop-filter: blur(10px);
-z-index: 999;
-transform-style: preserve-3d;
-animation: slideDown 0.5s ease forwards;
-border-top: 1px solid rgba(212, 175, 55, 0.1);
-border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-}
-@keyframes slideDown {
-from { transform: translateY(-20px) rotateX(-10deg); opacity: 0; }
-to { transform: translateY(0) rotateX(0); opacity: 1; }
-}
-.nav-mobile.active {
+.mobile-menu-btn {
 display: block;
+position: absolute;
+top: 1.5rem;
+right: 1.5rem;
 }
-.nav-mobile ul {
-list-style: none;
-}
-.nav-mobile li {
-margin-bottom: 1.5rem;
-transform-style: preserve-3d;
-}
-.nav-mobile a {
-color: var(--white);
-text-decoration: none;
-font-weight: 500;
-font-size: 1.2rem;
-display: block;
-padding: 0.75rem 0;
-transition: var(--transition);
-border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-}
-.nav-mobile a:hover {
-color: var(--accent-gold);
-padding-left: 15px;
-transform: translateZ(10px);
-}
-/* Ajustes de secciones para móvil */
 .hero {
-padding: 9rem 1.5rem 3rem;
+padding: 10rem 1rem 3rem;
 }
 .hero h1 {
 font-size: 2.5rem;
 }
 .hero h2 {
-font-size: 1rem;
+font-size: 1.2rem;
 letter-spacing: 5px;
 }
 .section {
-padding: 4rem 1.5rem;
-}
-.contact-form {
-padding: 2.5rem 2rem;
-transform: perspective(1000px) rotateX(0deg);
-}
-.contact-form:hover {
-transform: perspective(1000px) translateZ(10px);
-}
-.planet {
-width: 150px;
-height: 150px;
-top: 8%;
-right: 2%;
-}
-.service-card,
-.service-card:nth-child(even) {
-transform: perspective(1000px) rotateY(0deg);
-}
-.service-card:hover {
-transform: perspective(1000px) translateY(-10px) translateZ(15px);
-}
-}
-@media (max-width: 576px) {
-html {
-font-size: 15px;
-}
-.hero {
-padding: 8rem 1.5rem 2.5rem;
-}
-.hero h1 {
-font-size: 2.2rem;
-}
-.hero h2 {
-font-size: 0.9rem;
-letter-spacing: 4px;
-}
-.hero p {
-font-size: 1rem;
-}
-.logo {
-font-size: 1.5rem;
+padding: 4rem 1rem;
 }
 .section-title h2 {
-font-size: 2rem;
-}
-.btn {
-padding: 0.75rem 1.5rem;
-}
-.planet {
-width: 120px;
-height: 120px;
-top: 6%;
-}
-.products-grid,
-.services-grid {
-grid-template-columns: 1fr;
-}
-}
-@media (max-width: 400px) {
-.hero h1 {
-font-size: 1.8rem;
+font-size: 2.2rem;
 }
 .contact-form {
-padding: 2rem 1.5rem;
+padding: 2rem;
 }
 }
 </style>
 </head>
 <body>
 <!-- FONDO ESPACIAL -->
-<div class="space-bg" id="spaceBg"></div>
-<!-- HEADER CON NAVEGACIÓN 3D -->
+<div class="space-bg" id="space-bg"></div>
+<!-- HEADER CON LOGO -->
 <header>
 <div class="container header-container">
-<a href="#" class="logo">
-VÉSPERUM
-<span class="logo-slogan">LO MAS ALTO, EN UN SOLO LUGAR</span>
-</a>
-<!-- Navegación desktop -->
+<div class="logo-container">
+<a href="#" class="logo">VESPERUM</a>
+<div class="logo-slogan">LO MAS ALTO, EN UN SOLO LUGAR</div>
+</div>
+<button class="mobile-menu-btn" id="mobile-menu-btn">
+<i class="fas fa-bars"></i>
+</button>
 <ul class="nav-desktop">
 <li><a href="#inicio">Inicio</a></li>
 <li><a href="#nosotros">Nosotros</a></li>
 <li><a href="#catalogo">Catálogo</a></li>
 <li><a href="#servicios">Servicios</a></li>
-<li><a href="#contacto">Contacto</a></li>
-</ul>
-<!-- Botón menú móvil -->
-<button class="mobile-menu-btn" id="mobileMenuBtn">
-<i class="fas fa-bars"></i>
-</button>
-</div>
-<!-- Menú móvil -->
-<div class="nav-mobile" id="navMobile">
-<ul>
-<li><a href="#inicio">Inicio</a></li>
-<li><a href="#nosotros">Nosotros</a></li>
-<li><a href="#catalogo">Catálogo</a></li>
-<li><a href="#servicios">Servicios</a></li>
-<li><a href="#contacto">Contacto</a></li>
+<li><a href="#contacto" class="btn">Contacto</a></li>
 </ul>
 </div>
 </header>
-<!-- HERO SECTION CON FONDO ESPACIAL -->
+<!-- HERO SECTION -->
 <section class="hero" id="inicio">
-<div class="planet"></div>
-<div class="hero-content">
+<div class="container hero-content">
 <h1>VÉSPERUM</h1>
-<h2>TECNOLOGÍA Y EXCELENCIA</h2>
-<p>Donde la innovación se encuentra con la perfección. Ofrecemos lo más avanzado
-en tecnología y soluciones premium, elevando cada experiencia a nuevas alturas en un solo
-lugar.</p>
+<h2>LO MAS ALTO, EN UN SOLO LUGAR</h2>
+<p>Descubre una experiencia única donde la excelencia se encuentra con la
+innovación. Ofrecemos productos y servicios de la más alta calidad, diseñados para superar tus
+expectativas y elevar tus estándares.</p>
 <a href="#catalogo" class="btn">Explorar Catálogo</a>
 </div>
 </section>
 <!-- SECCIÓN NOSOTROS -->
-<section class="section" id="nosotros">
+<section class="section section-light" id="nosotros">
 <div class="container">
 <div class="section-title">
-<h2>Vésperum Excellence</h2>
-<p>Fusión perfecta entre tecnología de vanguardia y diseño elegante</p>
+<h2>Sobre Nosotros</h2>
+<p>Conoce la historia y los valores que nos han llevado a ser referentes en nuestro
+sector.</p>
 </div>
 <div class="about-content">
 <div class="about-text">
-<h3>Innovación en cada detalle</h3>
-<p>Vésperum representa la convergencia de lo último en tecnología con un diseño
-meticuloso y sofisticado. Nuestra filosofía se basa en ofrecer productos y servicios que no solo
-satisfacen necesidades, sino que superan expectativas.</p>
-<p>Especializados en soluciones tecnológicas de alta gama, cada producto en
-nuestro catálogo ha sido seleccionado por su innovación, calidad excepcional y capacidad para
-transformar la forma en que trabajas y vives.</p>
-<p>Nuestro equipo de expertos está constantemente investigando las últimas
-tendencias para garantizar que siempre ofrezcamos lo más avanzado del mercado.</p>
-<a href="#contacto" class="btn btn-outline" style="margin-top:
-1.5rem;">Contactar</a>
+<h3>Nuestra Misión</h3>
+<p>En Vésperum nos dedicamos a ofrecer productos y servicios de la más alta
+calidad, combinando innovación, diseño y funcionalidad. Nuestra misión es proporcionar
+soluciones excepcionales que superen las expectativas de nuestros clientes.</p>
+<h3>Visión</h3>
+<p>Aspiramos a ser reconocidos como líderes en nuestro sector, expandiendo
+nuestra presencia a nivel internacional mientras mantenemos nuestros valores fundamentales
+de calidad, integridad y servicio al cliente.</p>
+<h3>Valores</h3>
+<p>Trabajamos con pasión, dedicación y un compromiso inquebrantable con la
+excelencia. Creemos en la innovación constante, la sostenibilidad y en construir relaciones
+duraderas con nuestros clientes y partners.</p>
 </div>
 <div class="about-image">
-<img
-src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3
-wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2
-068&q=80" alt="Tecnología Vésperum">
+<!-- Imagen representativa de la empresa -->
+<div style="width:100%; height:400px; background:linear-gradient(135deg, #0a1f0a
+0%, #2ecc71 100%); display:flex; align-items:center; justify-content:center; color:white;
+font-size:1.5rem; font-family:'Orbitron', sans-serif;">
+VÉSPERUM EXCELLENCE
+</div>
 </div>
 </div>
 </div>
@@ -947,59 +671,60 @@ wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2
 <section class="section catalog" id="catalogo">
 <div class="container">
 <div class="section-title">
-<h2>Catálogo Premium</h2>
-<p>Productos de vanguardia seleccionados para la excelencia</p>
+<h2>Nuestro Catálogo</h2>
+<p>Descubre nuestra selección exclusiva de productos premium diseñados para los
+más exigentes.</p>
 </div>
 <div class="products-grid">
-<!-- Producto 1 -->
 <div class="product-card">
 <div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?ixlib=rb-4.0.3&ixid=M3
-wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2
-042&q=80" alt="Workstation Quantum X">
+<div style="width:100%; height:100%; background:linear-gradient(135deg,
+#0a1f0a 0%, #4ecdc4 100%); display:flex; align-items:center; justify-content:center; color:white;
+font-size:1.2rem;">
+PRODUCTO PREMIUM
+</div>
 </div>
 <div class="product-info">
-<span class="product-category">Workstation</span>
-<h3 class="product-name">Quantum X Pro</h3>
-<p class="product-description">Estación de trabajo de alto rendimiento con
-procesador Threadripper Pro y GPU RTX 4090 para tareas intensivas.</p>
-<div class="product-price">$4,299.99</div>
-<a href="#contacto" class="btn" style="width: 100%;">Consultar</a>
+<span class="product-category">Línea Elite</span>
+<h3 class="product-name">Vanguard Series</h3>
+<p class="product-description">Tecnología de vanguardia con diseño innovador
+y materiales de primera calidad. Perfecto para quienes buscan lo último en su categoría.</p>
+<div class="product-price">$1,299.99</div>
+<a href="#" class="btn">Más Información</a>
 </div>
 </div>
-<!-- Producto 2 -->
 <div class="product-card">
 <div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-4.0.3&ixid=M3
-wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2
-070&q=80" alt="Monitor Odyssey G9">
+<div style="width:100%; height:100%; background:linear-gradient(135deg,
+#051405 0%, #2ecc71 100%); display:flex; align-items:center; justify-content:center; color:white;
+font-size:1.2rem;">
+PRODUCTO EXCLUSIVO
+</div>
 </div>
 <div class="product-info">
-<span class="product-category">Monitor</span>
-<h3 class="product-name">Odyssey G9 Curvo</h3>
-<p class="product-description">Monitor curvo super ultra-wide 49" con
-resolución Dual QHD, 240Hz y HDR1000 para una experiencia inmersiva.</p>
-<div class="product-price">$1,599.99</div>
-<a href="#contacto" class="btn" style="width: 100%;">Consultar</a>
+<span class="product-category">Colección Limited</span>
+<h3 class="product-name">Nexus Edition</h3>
+<p class="product-description">Edición limitada con características exclusivas y
+acabados personalizados. Solo 500 unidades disponibles mundialmente.</p>
+<div class="product-price">$2,499.99</div>
+<a href="#" class="btn">Más Información</a>
 </div>
 </div>
-<!-- Producto 3 -->
 <div class="product-card">
 <div class="product-img">
-<img
-src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?ixlib=rb-4.0.3&ixid=M
-3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=
-2068&q=80" alt="Laptop Zenith Pro">
+<div style="width:100%; height:100%; background:linear-gradient(135deg,
+#0a1f0a 0%, #27ae60 100%); display:flex; align-items:center; justify-content:center; color:white;
+font-size:1.2rem;">
+PRODUCTO INNOVADOR
+</div>
 </div>
 <div class="product-info">
-<span class="product-category">Laptop</span>
-<h3 class="product-name">Zenith Pro</h3>
-<p class="product-description">Portátil profesional con pantalla OLED 4K, Intel
-Core i9 y GPU dedicada para creativos y desarrolladores.</p>
-<div class="product-price">$2,899.99</div>
-<a href="#contacto" class="btn" style="width: 100%;">Consultar</a>
+<span class="product-category">Innovación</span>
+<h3 class="product-name">Aether Concept</h3>
+<p class="product-description">Revolucionario diseño conceptual que combina
+estética futurista con funcionalidad avanzada. El futuro hecho presente.</p>
+<div class="product-price">$3,799.99</div>
+<a href="#" class="btn">Más Información</a>
 </div>
 </div>
 </div>
@@ -1009,33 +734,35 @@ Core i9 y GPU dedicada para creativos y desarrolladores.</p>
 <section class="section section-light" id="servicios">
 <div class="container">
 <div class="section-title">
-<h2>Servicios Exclusivos</h2>
-<p>Soluciones integrales para necesidades tecnológicas avanzadas</p>
+<h2>Nuestros Servicios</h2>
+<p>Ofrecemos soluciones integrales adaptadas a las necesidades específicas de
+cada cliente.</p>
 </div>
 <div class="services-grid">
 <div class="service-card">
 <div class="service-icon">
-<i class="fas fa-server"></i>
+<i class="fas fa-headset"></i>
 </div>
-<h3>Infraestructura IT</h3>
-<p>Diseño e implementación de infraestructuras tecnológicas empresariales
-escalables y seguras con soporte 24/7.</p>
-</div>
-<div class="service-card">
-<div class="service-icon">
-<i class="fas fa-cloud"></i>
-</div>
-<h3>Soluciones Cloud</h3>
-<p>Migración, gestión y optimización de entornos cloud híbridos y multicloud para
-empresas de todos los tamaños.</p>
+<h3>Asesoría Personalizada</h3>
+<p>Nuestros expertos te guiarán en la selección del producto perfecto para tus
+necesidades específicas, con atención personalizada y seguimiento post-venta.</p>
 </div>
 <div class="service-card">
 <div class="service-icon">
-<i class="fas fa-shield-alt"></i>
+<i class="fas fa-shipping-fast"></i>
 </div>
-<h3>Ciberseguridad</h3>
-<p>Protección integral de sistemas, redes y datos con las tecnologías más
-avanzadas en seguridad informática.</p>
+<h3>Envío Express</h3>
+<p>Entrega rápida y segura en todo el territorio nacional. Opciones de envío
+prioritario disponibles para garantizar que recibas tu pedido en tiempo récord.</p>
+</div>
+<div class="service-card">
+<div class="service-icon">
+<i class="fas fa-cogs"></i>
+</div>
+<h3>Soporte Técnico</h3>
+<p>Asistencia técnica especializada disponible 24/7. Garantizamos el
+funcionamiento óptimo de todos nuestros productos con mantenimiento preventivo y
+correctivo.</p>
 </div>
 </div>
 </div>
@@ -1044,38 +771,29 @@ avanzadas en seguridad informática.</p>
 <section class="section" id="contacto">
 <div class="container">
 <div class="section-title">
-<h2>Contacto Vésperum</h2>
-<p>Conectemos para llevar tu tecnología al siguiente nivel</p>
+<h2>Contáctanos</h2>
+<p>Estamos aquí para responder todas tus preguntas y ayudarte a encontrar la
+solución perfecta.</p>
 </div>
 <div class="contact-form">
 <form id="contactForm">
 <div class="form-group">
 <label for="name">Nombre completo</label>
-<input type="text" id="name" name="name" required>
+<input type="text" id="name" class="form-control" required>
 </div>
 <div class="form-group">
 <label for="email">Correo electrónico</label>
-<input type="email" id="email" name="email" required>
+<input type="email" id="email" class="form-control" required>
 </div>
 <div class="form-group">
-<label for="product">Producto o servicio de interés</label>
-<select id="product" name="product" required>
-<option value="">Selecciona una opción</option>
-<option value="workstation">Workstation Quantum X Pro</option>
-<option value="monitor">Monitor Odyssey G9 Curvo</option>
-<option value="laptop">Laptop Zenith Pro</option>
-<option value="infrastructure">Infraestructura IT</option>
-<option value="cloud">Soluciones Cloud</option>
-<option value="security">Ciberseguridad</option>
-<option value="other">Otro</option>
-</select>
+<label for="phone">Teléfono</label>
+<input type="tel" id="phone" class="form-control">
 </div>
 <div class="form-group">
 <label for="message">Mensaje</label>
-<textarea id="message" name="message" placeholder="Describe tus
-necesidades..." required></textarea>
+<textarea id="message" class="form-control" required></textarea>
 </div>
-<button type="submit" class="btn" style="width: 100%;">Enviar Consulta</button>
+<button type="submit" class="btn" style="width:100%;">Enviar Mensaje</button>
 </form>
 </div>
 </div>
@@ -1084,20 +802,13 @@ necesidades..." required></textarea>
 <footer>
 <div class="container">
 <div class="footer-content">
-<div class="footer-column">
-<h3>VÉSPERUM</h3>
-<p style="color: rgba(255, 255, 255, 0.8); margin-top: 1.5rem;">Lo más alto en
-tecnología y excelencia, en un solo lugar. Innovación que transforma.</p>
-<div class="social-links">
-<a href="#"><i class="fab fa-twitter"></i></a>
-<a href="#"><i class="fab fa-linkedin-in"></i></a>
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
+<div class="footer-brand">
+<div class="footer-logo">VESPERUM</div>
+<div class="footer-slogan">LO MAS ALTO, EN UN SOLO LUGAR</div>
 </div>
-</div>
-<div class="footer-column">
-<h3>Enlaces</h3>
-<ul class="footer-links">
+<div class="footer-links">
+<h3>Enlaces Rápidos</h3>
+<ul>
 <li><a href="#inicio">Inicio</a></li>
 <li><a href="#nosotros">Nosotros</a></li>
 <li><a href="#catalogo">Catálogo</a></li>
@@ -1105,29 +816,26 @@ tecnología y excelencia, en un solo lugar. Innovación que transforma.</p>
 <li><a href="#contacto">Contacto</a></li>
 </ul>
 </div>
-<div class="footer-column">
+<div class="footer-contact">
 <h3>Contacto</h3>
-<div class="contact-info">
-<p><i class="fas fa-map-marker-alt"></i> Av. Tecnología 123, Distrito
-Innovación</p>
-<p><i class="fas fa-phone"></i> +1 800 VESPERUM</p>
+<p><i class="fas fa-map-marker-alt"></i> Av. Excelencia 123, Ciudad Premium</p>
+<p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
 <p><i class="fas fa-envelope"></i> info@vesperum.com</p>
-<p><i class="fas fa-clock"></i> Lun - Vie: 9:00 - 20:00</p>
-</div>
+<p><i class="fas fa-clock"></i> Lunes a Viernes: 9:00 - 18:00</p>
 </div>
 </div>
 <div class="copyright">
-<p>&copy; 2023 Vésperum. Todos los derechos reservados. | Tecnología y
-Excelencia</p>
+<p>&copy; 2023 Vésperum. Todos los derechos reservados. | Diseñado con <i
+class="fas fa-heart" style="color:#2ecc71;"></i> para los más exigentes.</p>
 </div>
 </div>
 </footer>
 <script>
-// Generar estrellas en el fondo espacial
-function createStars() {
-const spaceBg = document.getElementById('spaceBg');
-const starCount = window.innerWidth < 768 ? 50 : 100;
-for (let i = 0; i < starCount; i++) {
+// Crear estrellas para el fondo espacial
+document.addEventListener('DOMContentLoaded', function() {
+const spaceBg = document.getElementById('space-bg');
+// Crear estrellas
+for (let i = 0; i < 150; i++) {
 const star = document.createElement('div');
 star.classList.add('star');
 // Tamaño aleatorio
@@ -1141,31 +849,57 @@ star.style.top = `${Math.random() * 100}%`;
 star.style.animationDelay = `${Math.random() * 5}s`;
 spaceBg.appendChild(star);
 }
+// Manejo del menú móvil
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const navDesktop = document.querySelector('.nav-desktop');
+mobileMenuBtn.addEventListener('click', function() {
+navDesktop.style.display = navDesktop.style.display === 'flex' ? 'none' : 'flex';
+navDesktop.style.flexDirection = 'column';
+navDesktop.style.position = 'absolute';
+navDesktop.style.top = '100%';
+navDesktop.style.right = '0';
+navDesktop.style.background = 'rgba(10, 31, 10, 0.95)';
+navDesktop.style.padding = '2rem';
+navDesktop.style.borderRadius = '0 0 0 15px';
+navDesktop.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)';
+navDesktop.style.width = '250px';
+if (navDesktop.style.display === 'flex') {
+navDesktop.querySelectorAll('li').forEach(li => {
+li.style.margin = '0.5rem 0';
+});
 }
-// Menú móvil
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navMobile = document.getElementById('navMobile');
-mobileMenuBtn.addEventListener('click', () => {
-navMobile.classList.toggle('active');
-mobileMenuBtn.innerHTML = navMobile.classList.contains('active')
-? '<i class="fas fa-times"></i>'
-: '<i class="fas fa-bars"></i>';
 });
-// Cerrar menú móvil al hacer clic en un enlace
-document.querySelectorAll('.nav-mobile a').forEach(link => {
-link.addEventListener('click', () => {
-navMobile.classList.remove('active');
-mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+// Cerrar menú al hacer clic en un enlace
+document.querySelectorAll('.nav-desktop a').forEach(link => {
+link.addEventListener('click', function() {
+if (window.innerWidth <= 768) {
+navDesktop.style.display = 'none';
+}
 });
 });
-// Navegación suave
+// Manejo del formulario de contacto
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+// Obtener valores del formulario
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const message = document.getElementById('message').value;
+// Aquí normalmente enviarías los datos a un servidor
+// Por ahora, solo mostraremos una alerta
+alert(`¡Gracias ${name}! Tu mensaje ha sido enviado. Te contactaremos en ${email}
+pronto.`);
+// Limpiar formulario
+contactForm.reset();
+});
+// Smooth scroll para navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 anchor.addEventListener('click', function(e) {
 e.preventDefault();
 const targetId = this.getAttribute('href');
-if(targetId === '#') return;
+if (targetId === '#') return;
 const targetElement = document.querySelector(targetId);
-if(targetElement) {
+if (targetElement) {
 window.scrollTo({
 top: targetElement.offsetTop - 80,
 behavior: 'smooth'
@@ -1173,72 +907,6 @@ behavior: 'smooth'
 }
 });
 });
-// Formulario de contacto
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function(e) {
-e.preventDefault();
-const formData = new FormData(this);
-const name = formData.get('name');
-const email = formData.get('email');
-const product = formData.get('product');
-// Mapear valores a nombres legibles
-const productNames = {
-'workstation': 'Workstation Quantum X Pro',
-'monitor': 'Monitor Odyssey G9 Curvo',
-'laptop': 'Laptop Zenith Pro',
-'infrastructure': 'Infraestructura IT',
-'cloud': 'Soluciones Cloud',
-'security': 'Ciberseguridad',
-'other': 'otro producto/servicio'
-};
-const productName = productNames[product] || 'un producto/servicio';
-// Simular envío
-alert(`¡Gracias ${name}! Hemos recibido tu consulta sobre ${productName}. Te
-contactaremos pronto en ${email}.`);
-// Resetear formulario
-this.reset();
-});
-// Efecto de header al hacer scroll
-window.addEventListener('scroll', () => {
-const header = document.querySelector('header');
-if(window.scrollY > 100) {
-header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
-header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
-} else {
-header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
-header.style.boxShadow = 'none';
-}
-});
-// Animación de elementos al hacer scroll
-const observerOptions = {
-threshold: 0.1,
-rootMargin: '0px 0px -50px 0px'
-};
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.style.opacity = '1';
-entry.target.style.transform = 'translateY(0)';
-}
-});
-}, observerOptions);
-// Observar elementos para animación
-document.querySelectorAll('.product-card, .service-card, .about-image').forEach(el => {
-el.style.opacity = '0';
-el.style.transform = 'translateY(30px)';
-el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-observer.observe(el);
-});
-// Inicializar estrellas al cargar la página
-window.addEventListener('DOMContentLoaded', createStars);
-// Recrear estrellas al redimensionar la ventana
-let resizeTimeout;
-window.addEventListener('resize', () => {
-clearTimeout(resizeTimeout);
-resizeTimeout = setTimeout(() => {
-document.querySelectorAll('.star').forEach(star => star.remove());
-createStars();
-}, 250);
 });
 </script>
 </body>
